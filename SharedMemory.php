@@ -1,9 +1,17 @@
 <?php
 
+/*
+* This file is part of the sharedmemory package.
+*
+* (c) Besnik Brahimi <besnik.br@gmail.com>
+* (c) Fabian Frick <fabi.kcirf@gmail.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
+
 /**
- *
- * @author Fabian Frick <fabi.kcirf@gmail.com>
- * @author Besnik Brahimi <besnik.br@gmail.com>
+ * This class can be used to share information between different php processes using shared memory container
  */
 class SharedMemory implements ArrayAccess
 {
