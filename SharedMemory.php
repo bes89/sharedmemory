@@ -21,8 +21,7 @@ class SharedMemory
 
     protected function attach($key, $size)
     {
-        if (!array_key_exists($key, $this->values))
-        {
+        if (!array_key_exists($key, $this->values)) {
             $this->values[$key] = array(
                 'shm' => shm_attach($key, $size),
                 'mutex' => sem_get($key, 1)
@@ -32,7 +31,8 @@ class SharedMemory
         return $this->values[$key];
     }
 
-    public function set($key, $value, $size = 10000) {
+    public function set($key, $value, $size = 10000)
+    {
         $result = $this->attach($key, $size);
 
         sem_acquire($result['mutex']);
@@ -40,7 +40,8 @@ class SharedMemory
         sem_release($result['mutex']);
     }
 
-    public function get($key, $size = 10000) {
+    public function get($key, $size = 10000)
+    {
         $result = $this->attach($key, $size);
 
         sem_acquire($result['mutex']);
