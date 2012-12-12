@@ -39,12 +39,15 @@ class SharedMemory
     /**
      * @param $key
      * @param $size
+     * @throws InvalidArgumentException
      * @return array
      */
     protected function attach($key, $size)
     {
-        if (!array_key_exists($key, $this->values))
-        {
+        if (!array_key_exists($key, $this->values)) {
+            if (!is_long($key)) {
+                throw new InvalidArgumentException('Expected type long for "key" but "' . gettype($key) . '" given.');
+            }
             $this->values[$key] = array(
                 'shm' => shm_attach($key, $size),
                 'mutex' => sem_get($key, 1)
@@ -59,7 +62,8 @@ class SharedMemory
      * @param $value
      * @param int $size
      */
-    public function set($key, $value, $size = 10000) {
+    public function set($key, $value, $size = 10000)
+    {
         $result = $this->attach($key, $size);
 
         sem_acquire($result['mutex']);
@@ -72,7 +76,8 @@ class SharedMemory
      * @param int $size
      * @return mixed
      */
-    public function get($key, $size = 10000) {
+    public function get($key, $size = 10000)
+    {
         $result = $this->attach($key, $size);
 
         sem_acquire($result['mutex']);
