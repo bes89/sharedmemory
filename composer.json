@@ -1,0 +1,21 @@
+{
+    "name": "bes89/sharedmemory",
+    "type": "library",
+    "description": "Share information between different php processes using shared memory container",
+    "keywords": ["shared","memory"],
+    "homepage": "https://github.com/bes89/sharedmemory",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Besnik Brahimi",
+            "email": "besnik.br@gmail.com",
+        },
+        {
+            "name": "Fabian Frick"
+            "email: "fabi.kcirf@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
