@@ -1,5 +1,7 @@
 <?php
 
+namespace SharedMemory;
+
 /*
 * This file is part of the sharedmemory package.
 *
