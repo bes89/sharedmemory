@@ -15,7 +15,7 @@ namespace SharedMemory;
 /**
  * This class can be used to share information between different php processes using shared memory container
  */
-class SharedMemory implements ArrayAccess
+class SharedMemory implements \ArrayAccess
 {
     /**
      * @var array
